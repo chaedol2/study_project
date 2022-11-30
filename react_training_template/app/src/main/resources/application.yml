@@ -1,0 +1,40 @@
+spring:
+    profiles:
+        active: local
+    servlet:
+        multipart:
+            max-file-size: 10MB
+            max-request-size: 10MB
+    thymeleaf:
+        cache: false
+    sql:
+        init:
+            mode: always
+    datasource:
+        driver-class-name: org.mariadb.jdbc.Driver
+        hikari:
+            pool-name: hikariPool
+            auto-commit: false
+            connection-timeout: 1000 #ms
+            max-lifetime: 58000 #ms
+            idle-timeout: 0
+            maximum-pool-size: 5
+            minimum-idle: 5
+            leak-detection-threshold: 2000 # ms
+            data-source-properties:
+                cachePrepStmts: true
+                useServerPrepStmts: true
+                prepStmtCacheSize: 500
+                prepStmtCacheSqlLimit: 2048
+    jpa:
+        database: MYSQL
+        properties:
+            hibernate.format_sql: true
+            hibernate.cache.use_second_level_cache: false
+            hibernate.cache.use_query_cache: false
+            hibernate.cache.use_minimal_puts: true
+            hibernate.cache.use_reference_entries: true
+            hibernate.cache.default_cache_concurrency_strategy: nonstrict-read-write
+            hibernate.cache.region.factory_class: com.hazelcast.hibernate.HazelcastCacheRegionFactory
+            javax.persistence.sharedCache.mode: ENABLE_SELECTIVE
+        defer-datasource-initialization: true

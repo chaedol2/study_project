@@ -1,0 +1,11 @@
+.form-control {
+  display: flex;
+  margin-bottom: 20px;
+}
+.form-control h6 {
+  border: 2px solid lightgray;
+  border-radius: 5%;
+}
+.error {
+  color: red;
+}

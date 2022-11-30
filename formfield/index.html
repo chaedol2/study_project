@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- css -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- js -->
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <form id="form_field" name="formField" method="get" action="/home">
+        <table class="form-table" boder="1" cellspacing="0">
+            <!-- 회원 기본 정보 -->
+            <tr>
+                <th colspan="2">회원 기본 정보</th>
+            </tr>
+            <tr>
+                <th>
+                    <label for="user_id">아이디 :</label>
+                </th>
+                <td>
+                    <div class="form-validation-view">
+                        <input type="text" id="user_id" name="userId" placeHolder="아이디 입력"><br>
+                        <small></small>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="user_password">비밀번호 :</label>
+                </th>
+                <td>
+                    <div class="form-validation-view">
+                        <input type="password" id="user_password" class="user-password" name="password" placeHolder="비밀번호 입력"><br>
+                        <small></small>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="user_password_check">비밀번호확인 :</label>
+                </th>
+                <td>
+                    <div class="form-validation-view">
+                        <input type="password" id="user_password_check" name="userPasswordCheck" placeHolder="비밀번호 확인"><br>
+                        <small></small>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="user-email">메일주소 :</label>
+                </th>
+                <td>
+                    <div class="form-validation-view">
+                        <input type='text' id="email_id" name="emailId" placeholder="아이디">@
+                        <input type='text' id="email_dns" name="emailDns" placeholder="이메일">
+                        <select class="email-address" id="email_address" name="emailAddress">
+                            <option value="">직접입력</option>
+                            <option value="howoocast.com">howoocast.com</option>
+                            <option value="daum.net">daum.net</option>
+                            <option value="gmail.com">gmail.com</option>
+                            <option value="naver.com">naver.com</option>
+                        </select><br>
+                        <small></small>
+                    </div>
+                </td>
+            </tr>
+            <!-- 개인 정보 -->
+            <tr>
+                <th colspan="2">회원 개인 정보</th>
+            </tr>
+            <tr>
+                <th>
+                    <label for="user_name">이름 :</label>
+                </th>
+                <td>
+                    <div class="form-validation-view">
+                        <input type="text" id="user_name" name="userName" placeHolder="이름 입력"><br>
+                        <small></small>
+                    </div>  
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="">성별 :</label>
+                </th>
+                <td>
+                    <div class="form-validation-view">
+                        <input type="radio" id="choice-gender-male" name="choiceGender" value="male">
+                        <label for="choice-gender-male">남성</label>
+                        <input type="radio" id="choice-gender-female" name="choiceGender" value="female">
+                        <label for="choice-gender-female">여성</label><br>
+                        <small></small>
+                    </div>
+                </td>
+            </tr>
+            <tr> 
+                <th>
+                    <label>관심사 :</label>
+                </th> 
+                <td>
+                    <div class="form-validation-view">
+                        <input type="checkbox" name="userInterest" value="sports"><span>스포츠</span>
+                        <input type="checkbox" name="userInterest" value="trip"><span>여행</span>
+                        <input type="checkbox" name="userInterest" value="movie"><span>영화</span>
+                        <input type="checkbox" name="userInterest" value="music"><span>음악</span><br>
+                        <small></small>
+                    </div>
+                </td> 
+            </tr>
+            <tr> 
+                <th>
+                    <label>취미 :</label>
+                </th> 
+                <td>
+                    <div class="form-validation-view">
+                        <select class="user-hobby" id="user_hobby" name="userHobby" multiple>
+                            <optgroup label="취미를 선택해주세요">
+                                <option name="userHobby" value="reading">독서</option>
+                                <option name="userHobby" value="movie">영화시청</option>
+                                <option name="userHobby" value="soccer">축구</option>
+                                <option name="userHobby" value="game">게임</option>
+                            </optgroup>
+                        </select><br>
+                    <small></small>
+                    </div>
+                </td> 
+            </tr>
+            <tr> 
+                <th>
+                    <label>주소 :</label>
+                </th> 
+                <td>
+                    <div class="form-validation-view">
+                        <input type="number" id="post_code" placeholder="우편번호">
+                        <select name="selectAddressSido" id="select_address_sido">
+                            <option value>시/도 선택</option>
+                            <option value="seoulsi">서울시</option>
+                            <option value="incheonsi">인천시</option>
+                            <option value="daejeonsi">대전시</option>
+                            <option value="gwangjusi">광주시</option>
+                            <option value="daegusi">대구시</option>
+                            <option value="ulsansi">울산시</option>
+                            <option value="busansi">부산시</option>
+                            <option value="gyeonggido">경기도</option>
+                            <option value="kwangwondo">강원도</option>
+                            <option value="chungcheongbukdo">충청북도</option>
+                            <option value="chungcheongnamdo">충청남도</option>
+                            <option value="jeonrabukdo">전라북도</option>
+                            <option value="jeonranamdo">전라남도</option>
+                            <option value="gyeungsangbukdo">경상북도</option>
+                            <option value="gyeungsangnamdo">경상남도</option>
+                            <option value="jejudo">제주도</option>
+                        </select>
+                        <select name="selectAddressGungu" id="select_address_gungu">
+                            <option value>군/구 선택</option>
+                        </select><br>
+                        
+                        <input type="text" id="text_detail_address" placeholder="상세 주소"><br>
+                        <small></small>
+                    </div> 
+                </td> 
+            </tr>
+            <tr> 
+                <th>
+                    <label>전화번호 :</label>
+                </th> 
+                <td>
+                    <div class="form-validation-view">
+                        <input type="tel"
+                        id="tel_phone_number"
+                        pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}"
+                        maxlength="13"
+                        placeholder="ex) 010-1234-5678"/><br>
+                        <small></small>
+                    </div>
+                </td> 
+            </tr>
+            <tr>
+                <th>
+                    <label>자기소개 :</label>
+                </th>
+                <td>
+                    <div class="form-validation-view">
+                        <textarea id="user_intro" row="3" cols="80" style="resize: none;" placeHolder="자기소개는 최소 10글자 이상 최대 100글자까지 입력할 수 있습니다."></textarea><br>
+                        <small></small>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="user-birth">생년월일 :</label>
+                </th>
+                <td>
+                    <div class="form-validation-view">
+                        <input type="text" id="user_birth" maxlength="10" placeholder="ex) 2022-09-20"/>
+                        <input type="date" id="datepicker" max="9999-12-31" placeholder="날짜넣기"><br>
+                        <small></small>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="user-age">나이 :</label>
+                </th>
+                <td>
+                    <div class="form-validation-view">
+                        <input type="number" id="user_age" name="userAge" class="user-age" min="1" max="99" maxlength="2" placeholder="숫자로 입력해주세요"/><br>
+                        <small></small>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="user-profile-image">프로필 사진 :</label>
+                </th>
+                <td>
+                    <div class="image-container">
+                        <img style="width: 200px;" id="user_preview_image" src="" alt="your image">
+                    </div>
+                    <div class="form-validation-view">
+                        <input type="file" accept="image/*" id="user_upload_image"><br>
+                        <small></small>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>개인정보 동의 약관 :</label>
+                </th>
+                <td>
+                    <div class="privacy-agreement-container">
+                        <h2>이용약관 동의(필수)</h2>
+                        <div class="privacy-checkbox">
+                            <input id="privacy_checkbox_agree" type="checkbox"/>
+                            <label for="privacy_checkbox_agree">
+                                <b>이용약관에 동의합니다.</b>
+                            </label><br>
+                        </div><br>
+                        <div id="privacy_agreement" class="privacy-agreement">
+                            <h3>제1장 총칙</h3>
+
+                            <h4>조문체계도버튼연혁</h4>
+                            <p>제1조(목적) 이 법은 개인정보의 처리 및 보호에 관한 사항을 정함으로써 개인의 자유와 권리를 보호하고, 나아가 개인의 존엄과 가치를 구현함을 목적으로 한다. <개정 2014. 3. 24.></p>
+
+                            <h4>조문체계도버튼연혁생활법령버튼</h4>
+                            <p>제2조(정의) 이 법에서 사용하는 용어의 뜻은 다음과 같다. <개정 2014. 3. 24., 2020. 2. 4.>
+
+                            1. “개인정보”란 살아 있는 개인에 관한 정보로서 다음 각 목의 어느 하나에 해당하는 정보를 말한다.
+
+                            가. 성명, 주민등록번호 및 영상 등을 통하여 개인을 알아볼 수 있는 정보
+
+                            나. 해당 정보만으로는 특정 개인을 알아볼 수 없더라도 다른 정보와 쉽게 결합하여 알아볼 수 있는 정보. 이 경우 쉽게 결합할 수 있는지 여부는 다른 정보의 입수 가능성 등 개인을 알아보는 데 소요되는 시간, 비용, 기술 등을 합리적으로 고려하여야 한다.
+
+                            다. 가목 또는 나목을 제1호의2에 따라 가명처리함으로써 원래의 상태로 복원하기 위한 추가 정보의 사용ㆍ결합 없이는 특정 개인을 알아볼 수 없는 정보(이하 “가명정보”라 한다)
+
+                            1의2. “가명처리”란 개인정보의 일부를 삭제하거나 일부 또는 전부를 대체하는 등의 방법으로 추가 정보가 없이는 특정 개인을 알아볼 수 없도록 처리하는 것을 말한다.
+
+                            2. “처리”란 개인정보의 수집, 생성, 연계, 연동, 기록, 저장, 보유, 가공, 편집, 검색, 출력, 정정(訂正), 복구, 이용, 제공, 공개, 파기(破棄), 그 밖에 이와 유사한 행위를 말한다.
+
+                            3. “정보주체”란 처리되는 정보에 의하여 알아볼 수 있는 사람으로서 그 정보의 주체가 되는 사람을 말한다.
+
+                            4. “개인정보파일”이란 개인정보를 쉽게 검색할 수 있도록 일정한 규칙에 따라 체계적으로 배열하거나 구성한 개인정보의 집합물(集合物)을 말한다.
+
+                            5. “개인정보처리자”란 업무를 목적으로 개인정보파일을 운용하기 위하여 스스로 또는 다른 사람을 통하여 개인정보를 처리하는 공공기관, 법인, 단체 및 개인 등을 말한다.
+
+                            6. “공공기관”이란 다음 각 목의 기관을 말한다.
+
+                            가. 국회, 법원, 헌법재판소, 중앙선거관리위원회의 행정사무를 처리하는 기관, 중앙행정기관(대통령 소속 기관과 국무총리 소속 기관을 포함한다) 및 그 소속 기관, 지방자치단체
+
+                            나. 그 밖의 국가기관 및 공공단체 중 대통령령으로 정하는 기관
+
+                            7. “영상정보처리기기”란 일정한 공간에 지속적으로 설치되어 사람 또는 사물의 영상 등을 촬영하거나 이를 유ㆍ무선망을 통하여 전송하는 장치로서 대통령령으로 정하는 장치를 말한다.
+
+                            8. “과학적 연구”란 기술의 개발과 실증, 기초연구, 응용연구 및 민간 투자 연구 등 과학적 방법을 적용하는 연구를 말한다.</p>
+
+                            <h4>조문체계도버튼연혁생활법령버튼</h4>
+                            <p>제3조(개인정보 보호 원칙) ① 개인정보처리자는 개인정보의 처리 목적을 명확하게 하여야 하고 그 목적에 필요한 범위에서 최소한의 개인정보만을 적법하고 정당하게 수집하여야 한다.
+
+                            ② 개인정보처리자는 개인정보의 처리 목적에 필요한 범위에서 적합하게 개인정보를 처리하여야 하며, 그 목적 외의 용도로 활용하여서는 아니 된다.
+
+                            ③ 개인정보처리자는 개인정보의 처리 목적에 필요한 범위에서 개인정보의 정확성, 완전성 및 최신성이 보장되도록 하여야 한다.
+
+                            ④ 개인정보처리자는 개인정보의 처리 방법 및 종류 등에 따라 정보주체의 권리가 침해받을 가능성과 그 위험 정도를 고려하여 개인정보를 안전하게 관리하여야 한다.
+
+                            ⑤ 개인정보처리자는 개인정보 처리방침 등 개인정보의 처리에 관한 사항을 공개하여야 하며, 열람청구권 등 정보주체의 권리를 보장하여야 한다.
+
+                            ⑥ 개인정보처리자는 정보주체의 사생활 침해를 최소화하는 방법으로 개인정보를 처리하여야 한다.
+
+                            ⑦ 개인정보처리자는 개인정보를 익명 또는 가명으로 처리하여도 개인정보 수집목적을 달성할 수 있는 경우 익명처리가 가능한 경우에는 익명에 의하여, 익명처리로 목적을 달성할 수 없는 경우에는 가명에 의하여 처리될 수 있도록 하여야 한다. <개정 2020. 2. 4.>
+
+                            ⑧ 개인정보처리자는 이 법 및 관계 법령에서 규정하고 있는 책임과 의무를 준수하고 실천함으로써 정보주체의 신뢰를 얻기 위하여 노력하여야 한다.</p>
+
+                            <h4>조문체계도버튼연혁생활법령버튼</h4>
+                            <p>제4조(정보주체의 권리) 정보주체는 자신의 개인정보 처리와 관련하여 다음 각 호의 권리를 가진다.
+
+                            1. 개인정보의 처리에 관한 정보를 제공받을 권리
+
+                            2. 개인정보의 처리에 관한 동의 여부, 동의 범위 등을 선택하고 결정할 권리
+
+                            3. 개인정보의 처리 여부를 확인하고 개인정보에 대하여 열람(사본의 발급을 포함한다. 이하 같다)을 요구할 권리
+
+                            4. 개인정보의 처리 정지, 정정ㆍ삭제 및 파기를 요구할 권리
+
+                            5. 개인정보의 처리로 인하여 발생한 피해를 신속하고 공정한 절차에 따라 구제받을 권리</p>
+
+                            <h4>조문체계도버튼연혁</h4>
+                            <p>제5조(국가 등의 책무) ① 국가와 지방자치단체는 개인정보의 목적 외 수집, 오용ㆍ남용 및 무분별한 감시ㆍ추적 등에 따른 폐해를 방지하여 인간의 존엄과 개인의 사생활 보호를 도모하기 위한 시책을 강구하여야 한다.
+
+                            ② 국가와 지방자치단체는 제4조에 따른 정보주체의 권리를 보호하기 위하여 법령의 개선 등 필요한 시책을 마련하여야 한다.
+
+                            ③ 국가와 지방자치단체는 개인정보의 처리에 관한 불합리한 사회적 관행을 개선하기 위하여 개인정보처리자의 자율적인 개인정보 보호활동을 존중하고 촉진ㆍ지원하여야 한다.
+
+                            ④ 국가와 지방자치단체는 개인정보의 처리에 관한 법령 또는 조례를 제정하거나 개정하는 경우에는 이 법의 목적에 부합되도록 하여야 한다.</p>
+
+                            <h4>조문체계도버튼연혁생활법령버튼</h4>
+                            <p>제6조(다른 법률과의 관계) 개인정보 보호에 관하여는 다른 법률에 특별한 규정이 있는 경우를 제외하고는 이 법에서 정하는 바에 따른다. <개정 2014. 3. 24.></p>
+                        </div>
+                        <div class="form-validation-view">
+                            <input type="radio" name="choicePrivacyAgree" id="privacy_agree" value="agree" disabled><span>동의합니다</span>
+                            <input type="radio" name="choicePrivacyAgree" id="privacy_disagree" value="disagree" disabled><span>미동의합니다</span><br>
+                            <small></small>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center;">
+                <input type="submit" value="회원가입">
+                <input type="reset" value="초기화">
+            </td>
+            </tr>
+        </table>
+    </form>
+    </div>
+</body>
+</html>

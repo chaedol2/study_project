@@ -1,0 +1,19 @@
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.5rem;
+  background-color: #64748B;
+  color: #18181B;
+}
+
+input[type="text"], button{
+  font: inherit;
+}
+
+main {
+  margin: auto;
+  max-width: 600px;
+  background-color: #F8FAFC;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  box-shadow: 2px 2px 5px #333;
+}

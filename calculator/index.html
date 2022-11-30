@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calculator</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/2536a17ab1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="content-container">
+        <div class="display">
+            <section class="display-area">
+                <div class="answer-screen"></div>
+                <div class="current-input"></div>
+            </section>
+            <section class="keypad-buttons">
+                <button type="button" class="function-button" id="clear">C</button>
+                <button class="function-button" id="erase" value="">
+                    <i class="fas fa-backspace"></i>
+                </button>
+                <button class="operator-button" value="/">/</button>
+                <button class="number-button" value="7">7</button>
+                <button class="number-button" value="8">8</button>
+                <button class="number-button" value="9">9</button>
+                <button class="operator-button" value="*">x</button>
+                <button class="number-button" value="4">4</button>
+                <button class="number-button" value="5">5</button>
+                <button class="number-button" value="6">6</button>
+                <button class="operator-button" value="-">-</button>
+                <button class="number-button" value="1">1</button>
+                <button class="number-button" value="2">2</button>
+                <button class="number-button" value="3">3</button>
+                <button class="operator-button" value="+">+</button>
+                <button class="function-button" id="history" value="">
+                    <i class="fas fa-history"></i>
+                </button>
+                <button class="number-button" value="0">0</button>
+                <button class="number-button" value=".">.</button>
+                <button class="function-button" id="equal_button" value="">=</button>
+            </section>
+        </div>
+        <div class="history">
+            <section class="history-area">
+                <div class="history-screen">
+                    <!-- History List -->
+                    <div class="history-list">
+                    <!-- <article class="history-item">
+                            <p class="history-formula">${value}</p>
+                            <button type="button" class="delete-history-button">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </article> -->
+                    </div>
+                    <!-- History Clear Button -->
+                    <button type="button" class="history-clear-button">clear history</button>
+            </section>
+        </div>
+    </div>
+    <!-- javascript -->
+    <script src="app.js" defer></script>
+</body>
+
+</html>

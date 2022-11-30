@@ -1,0 +1,59 @@
+html {
+height: 100%;
+}
+
+body {
+min-height: 100%;
+}
+
+.form-table {
+    min-width: 1000px;
+}
+
+table th {
+    width: 200px;
+    vertical-align: text-top;
+}
+
+.privacy-agreement-container{
+    
+    width: 500px;
+    padding: 10px 10px;
+}
+
+#text-detail-address{
+    min-width: 500px;
+}
+
+.input-error > small{
+    color: darkred;
+}
+
+.input-success > small{
+    color: darkgreen;
+}
+
+.privacy-checkbox{
+    background-color: darkgrey;
+    border: 3px solid;
+}
+
+.privacy-agreement{
+    visibility:hidden;
+    height: 300px;
+    overflow-y: auto;
+}
+
+.privacy-radio-container{
+    float: right;
+}
+
+.user-age{
+    width : 140px;
+}
+
+#privacy_agree{
+}
+
+#privacy_disagree{
+}

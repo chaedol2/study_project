@@ -1,0 +1,12 @@
+interface State {
+    name: string
+    capital: string
+}
+
+const states: State[] = [
+    {name: 'Alabama', capital: 'Montgomery'},
+    {name: 'Alaska', capitol: 'Juneau'},
+    {name: 'Arizona', capital: 'Phoenix'},
+]
+
+export default {}

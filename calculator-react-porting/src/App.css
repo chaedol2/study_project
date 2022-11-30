@@ -1,0 +1,263 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+.calculator-container {
+  width: 80vw;
+  background-color: whitesmoke;
+  display: flex;
+  padding: 50px 50px;
+  flex-direction: row;
+  align-content: center;
+}
+
+.display {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: nowrap;
+}
+
+.display-area {
+  background-color: black;
+  color: white;
+  font-size: xx-large;
+  text-align: right;
+  width: 100%;
+  min-width: 300px;
+}
+
+.answer-screen {
+  margin: 20px 20px;
+  height: 50px;
+  background-color: darkslategray;
+  color: white;
+  line-height: normal;
+}
+
+.current-input {
+  margin: 20px 20px;
+  height: 50px;
+  background-color: darkslategray;
+  line-height: normal;
+}
+
+.keypad-buttons {
+  min-width: 300px;
+  background-color: black;
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+  grid-template-columns: repeat(4, 1fr);
+  /* gap: 10px 10px; */
+  /* row-gap: 10px; */
+}
+
+.keypad-buttons button:nth-child(1) {
+  /* grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2; */
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+}
+
+.keypad-buttons button {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 20px 20px;
+  font-size: 20px;
+}
+
+.keypad-buttons .function-button {
+  color: rgb(46, 214, 20);
+}
+
+.keypad-buttons .operator-button {
+  color: rgb(46, 214, 20);
+}
+
+.keypad-buttons .history-button {
+  color: rgb(46, 214, 20);
+}
+
+.keypad-buttons button:hover {
+  background-color: #7a8e39;
+  /* Green */
+  color: white;
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  height: auto;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  visibility: hidden;
+}
+
+.history-area {
+  background-color: black;
+  color: white;
+  font-size: x-large;
+  text-align: center;
+  line-height: 455px;
+  min-width: 300px;
+}
+
+.history-screen {
+  margin: 20px 20px;
+  background-color: darkslategray;
+  color: white;
+  line-height: 100px;
+}
+
+.history-list {
+  height: 355px;
+  overflow-y: scroll;
+}
+
+.history-item {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  height: 70px;
+}
+
+.history-formula {
+  width: 300px;
+  letter-spacing: 3px;
+}
+
+.delete-history-button {
+  background-color: darkslategray;
+  border: none;
+  color: white;
+  padding: 20px 20px;
+  font-size: 20px;
+  color: rgb(46, 214, 20);
+}
+
+.delete-history-button:hover {
+  background-color: #7a8e39;
+  /* Green */
+  color: white;
+}
+
+.history-clear-button {
+  background-color: darkslategray;
+  border: none;
+  color: white;
+  padding: 20px 20px;
+  font-size: 20px;
+  color: rgb(46, 214, 20);
+}
+
+.history-clear-button:hover {
+  background-color: #7a8e39;
+  /* Green */
+  color: white;
+}
+
+.show-container {
+  visibility: visible;
+}
+
+@media (max-width: 660px) {
+  /* 모바일 */
+  .calculator-container {
+    width: 80vw;
+    display: inline-block;
+    text-align: center;
+    padding: 20px 20px;
+    min-width: 300px;
+  }
+  .display-area {
+    width: 80vw;
+  }
+  .keypad-buttons {
+    width: 80vw;
+  }
+  .history-area {
+    width: 80vw;
+  }
+  .history {
+    width: 80vw;
+  }
+}
+
+@media (min-width: 661px) and (max-width: 991px) {
+  /* 테블릿 세로 */
+  .calculator-container {
+    width: 70vw;
+    display: inline-block;
+    text-align: center;
+    padding: 30px 30px;
+  }
+  .display-area {
+    width: 70vw;
+  }
+  .keypad-buttons {
+    width: 70vw;
+  }
+  .history-area {
+    width: 70vw;
+  }
+  .history {
+    width: 70vw;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* 테블릿 가로 */
+  .calculator-container {
+    width: 80vw;
+    padding: 40px 40px;
+  }
+  .display-area {
+    width: 100%;
+    min-width: 300px;
+  }
+  .keypad-buttons {
+    min-width: 300px;
+  }
+  .history-area {
+    line-height: 455px;
+    min-width: 300px;
+  }
+  .history {
+    width: 40vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* 데스크탑 일반 */
+  .calculator-container {
+    width: 80vw;
+    padding: 50px 50px;
+  }
+  .display-area {
+    max-width: 80vw;
+  }
+  .keypad-buttons {
+    max-width: 80vw;
+  }
+  .history-area {
+    max-width: 80vw;
+  }
+  .history {
+    width: 40vw;
+    height: auto;
+  }
+}
