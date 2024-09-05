@@ -54,6 +54,67 @@ print('a \"\" b')
 escape_str1 = "Do you have a \"retro games\"?"
 print(escape_str1)
 escape_str2 = 'What\'s on Tv?'
+print(escape_str2)
 
 # 탭, 줄 바꿈
 t_s1 = "Click \t Start!"
+t_s2 = "New Line \n Check!"
+
+print(t_s1)
+print(t_s2)
+print()
+
+# Raw String
+# 이스케이프 문자를 사용안함.
+raw_s1 = r'D:\python\text'
+print(raw_s1)
+print()
+
+# 멀티라인 입력
+multi_str = \
+"""
+문자열
+멀티라인 입력
+테스트
+""" \
+'dsjfl';
+print(multi_str)
+
+# 문자열 연산
+str_o1="Python"
+str_o2="Apple"
+str_o3="How are you doing"
+str_o4="Seoul! Daejeon! Busan! Jinju"
+
+print(str_o1 * 3)
+print(str_o1 + str_o2)
+# 시퀀스 타입은 in 연산자로 확인가능하다.
+print('y' in str_o1)
+print('n' in str_o1)
+print('P' not in str_o2)
+
+# 문자열 형 변환
+print(str(66), type(str(66)))
+print(str(10.1))
+print(str(True), type(str(True)))
+
+# 문자열 함수(upper, isalnum, startswith, count, endswith, isalpha...)
+# 첫 글자를 대문자료 변환하여 반환
+print("Capitalizm : ", str_o1.capitalize())
+# 끝 글자를 비교하여 불린 반환
+print("endswith?: ", str_o2.endswith("!"))
+# 문자열의 특정 문자를 변경 후 반환
+print("replace", str_o1.replace("thon", " Good"))
+# 문자열을 정렬하여 리스트로 반환
+print("sorted: ", sorted(str_o1))
+# 특정 문자를 기준으로 나누어 리스트 반환
+print("split: ", str_o4.split('!'))
+
+# 반복(시퀀스)
+im_str = "Good Boy!"
+
+# dir을 통해 im_str변수에서 사용가능한 클래스들을 확인할 수 있다. iter를 사용해보자.
+print(dir(im_str)) # __iter__
+# 출력
+for i in im_str:
+    print(i)
