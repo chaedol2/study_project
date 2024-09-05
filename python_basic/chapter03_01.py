@@ -135,4 +135,4 @@ print(pow(5,3), 5**3)
 import math
 
 print(math.pi)
-print(math.ceil(5.1))
+print(math.ceil(5.1)) # 정수로 올림
