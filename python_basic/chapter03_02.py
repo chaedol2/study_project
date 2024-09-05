@@ -118,3 +118,26 @@ print(dir(im_str)) # __iter__
 # 출력
 for i in im_str:
     print(i)
+
+# 출력
+for i in im_str:
+    print(i)
+
+# 슬라이싱
+str_sl = "Nice Python"
+
+# 슬라이싱 연습
+print(str_sl[0:3]) # 0, 1, 2 index 출력
+print(str_sl[5:]) #[5:11]과 같다.
+print(str_sl[:len(str_sl)]) # 전체 출력 str_sl[:11]
+print(str_sl[:len(str_sl)-1]) # 전체 출력 str_sl[:10]
+print(str_sl[1:9:2]) # 3번째는 스텝을 나타낸다.
+print(str_sl[-5:]) # 끝에서 5번째 부터 끝까지 str_sl[6:] 과같다.
+print(str_sl[1:-2])
+print(str_sl[::2]) # 처음부터 끝까지 2스텝으로 가져온다.
+print(str_sl[::-1]) # 음수로 -1 스탭이기 때문에 거꾸로 출력된다.
+
+# 아스키 코드
+a = 'z'
+print(ord(a)) # 아스키 코드로
+print(chr(122)) # 문자로
