@@ -77,12 +77,12 @@ multi_str = \
 멀티라인 입력
 테스트
 """ \
-'dsjfl';
+'dsjfl'
 print(multi_str)
 
 # 문자열 연산
-str_o1="Python"
-str_o2="Apple"
+str_o1="python"
+str_o2="Apple!"
 str_o3="How are you doing"
 str_o4="Seoul! Daejeon! Busan! Jinju"
 
@@ -114,7 +114,7 @@ print("split: ", str_o4.split('!'))
 im_str = "Good Boy!"
 
 # dir을 통해 im_str변수에서 사용가능한 클래스들을 확인할 수 있다. iter를 사용해보자.
-print(dir(im_str)) # __iter__
+print(dir(im_str)) # __iter__ 가 있는 경우 반복이 가능하다.
 # 출력
 for i in im_str:
     print(i)
@@ -137,7 +137,7 @@ print(str_sl[1:-2])
 print(str_sl[::2]) # 처음부터 끝까지 2스텝으로 가져온다.
 print(str_sl[::-1]) # 음수로 -1 스탭이기 때문에 거꾸로 출력된다.
 
-# 아스키 코드
+# 아스키 코드(또는 유니코드)
 a = 'z'
-print(ord(a)) # 아스키 코드로
-print(chr(122)) # 문자로
+print(ord(a)) # 아스키 코드로 변환
+print(chr(122)) # 문자로 변환

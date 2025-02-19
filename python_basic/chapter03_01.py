@@ -47,6 +47,7 @@ print(type(list))
 print(type(dict))
 print(type(tuple))
 print(type(set))
+print()
 
 # 숫자형 연산자
 """
@@ -103,6 +104,7 @@ print(">>>>>*")
 print("i1 * i2 : ", i1 * i2)
 print("f1 * f2 : ", f1 * f2)
 print("big_int1 * big_int2 : ", big_int1 * big_int2)
+print()
 
 # 나머지 계산 생략.
 
@@ -119,9 +121,9 @@ print(type(a),type(b),type(c),type(d))
 print(float(b))
 print(int(c))
 print(int(d))
-print(int(True))
-print(float(False))
-print(complex(3))
+print(int(True)) # True : 1, False : 0
+print(float(False)) # float으로 0.0 출력
+print(complex(3)) # (3+0j) 복소수 출력
 print(complex('3')) # 문자형 -> 숫자형으로 변환을 한다.
 print(complex(False))
 
