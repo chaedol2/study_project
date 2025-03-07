@@ -7,45 +7,18 @@ import ActionButtons from "@/app/(afterLogin)/_component/ActionButtons";
 import PostArticle from "@/app/(afterLogin)/_component/PostArticle";
 import {faker} from '@faker-js/faker';
 import PostImages from "@/app/(afterLogin)/_component/PostImages";
+import { Post as IPost } from '@/model/Post';
 
 dayjs.locale('ko')
 dayjs.extend(relativeTime);
 
 type Props = {
     noImage?: boolean;
+    post: IPost;
 }
-export default function Post({noImage}: Props) {
-    const target = {
-        postId: 1,
-        User: {
-            id: 'chaedol2',
-            nickname: '채돌이',
-            image: '/yRsRRjGO.jpg',
-        },
-        content: '채돌이 approuter 강의',
-        createdAt: new Date(),
-        Images: [] as any[],
-    }
-    if (Math.random()>0.5 && !noImage){
-        target.Images.push(
-            {
-                imageId: 1,
-                link: faker.image.urlLoremFlickr()
-            },
-            {
-                imageId: 2,
-                link: faker.image.urlLoremFlickr()
-            },
-            {
-                imageId: 3,
-                link: faker.image.urlLoremFlickr()
-            },
-            {
-                imageId: 4,
-                link: faker.image.urlLoremFlickr()
-            }
-        )
-    }
+export default function Post({noImage, post}: Props) {
+    const target = post;
+
     return (
         <PostArticle post={target}>
             <div className={style.postWrapper}>
@@ -68,9 +41,11 @@ export default function Post({noImage}: Props) {
                         <span className={style.postDate}>{dayjs(target.createdAt).fromNow(true)}</span>
                     </div>
                     <div>{target.content}</div>
-                    <div>
-                        <PostImages post={target} />
-                    </div>
+                    {!noImage &&
+                        (<div>
+                            <PostImages post={target} />
+                        </div>)
+                    }
                     <ActionButtons />
                 </div>
             </div>

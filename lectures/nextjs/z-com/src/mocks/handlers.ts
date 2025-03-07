@@ -14,6 +14,7 @@ const User = [
     {id: 'elonmusk', nickname: 'Elon Musk', image: '/yRsRRjGO.jpg'},
     {id: 'zerohch0', nickname: '제로초', image: '/5Udwvqim.jpg'},
     {id: 'leoturtle', nickname: '레오', image: faker.image.avatar()},
+    {id: 'downct21', nicname: '채돌이', image: '/5Udwvqim.jpg'}
 ]
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
@@ -22,7 +23,12 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 export const handlers = [
     http.post(`${baseUrl}/api/login`, () => {
         console.log('로그인');
-        return HttpResponse.json(User[1], {
+        return HttpResponse.json({
+            userId: 1,
+            nickname: '채돌이',
+            id: 'downct21',
+            image: '5Udwvqim.jpg',
+        }, {
             headers: {
                 'Set-Cookie': 'connect.sid=msw-cookie;HttpOnly;Path=/'
             },

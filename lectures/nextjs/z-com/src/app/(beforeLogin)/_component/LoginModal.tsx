@@ -1,7 +1,7 @@
 "use client";
 
-import {ChangeEventHandler, FormEventHandler, useState} from "react";
 import style from '@/app/(beforeLogin)/_component/login.module.css';
+import {ChangeEventHandler, FormEventHandler, useState} from "react";
 import {useRouter} from "next/navigation";
 import {signIn} from "next-auth/react";
 
@@ -20,7 +20,6 @@ export default function LoginModal() {
                 password,
                 redirect: false,
             })
-            console.log(result);
             if (result?.code === 'no_user') {
                 setMessage('가입하지 않은 유저입니다.');
             } else if (result?.code === 'wrong_password') {

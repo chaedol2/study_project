@@ -5,33 +5,38 @@ import {signIn} from "@/auth";
 
 export default async (prevState: { message: string | null }, formData: FormData) => {
     if (!formData.get('id') || !(formData.get('id') as string)?.trim()) {
-        return { message: 'no_id' };
+        return {message: 'no_id'};
     }
     if (!formData.get('name') || !(formData.get('name') as string)?.trim()) {
-        return { message: 'no_name' };
+        return {message: 'no_name'};
     }
     if (!formData.get('password') || !(formData.get('password') as string)?.trim()) {
-        return { message: 'no_password' };
+        return {message: 'no_password'};
     }
     if (!formData.get('image')) {
-        return { message: 'no_image' };
+        return {message: 'no_image'};
     }
+    formData.set('nickname', formData.get('name') as string);
     let shouldRedirect = false;
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users`,
-            {
-                method: 'post',
-                body: formData,
-                credentials: 'include' // 이게 있어야 쿠키가 전달이 된다.(쿠키가 있어야 로그인 했는지 안했는지 여부를 알 수있다.)
-            });
-        console.log(response.status);
-
-        // 백엔드 에러처리
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users`, {
+            method: 'post',
+            body: formData,
+            credentials: 'include',
+        })
         if (response.status === 403) {
-            return { message : 'user_exist' }
+            return {message: 'user_exists'};
+        } else if (response.status === 400) {
+            return {
+                message: (await response.json()).data[0],
+                id: formData.get('id'),
+                nickname: formData.get('nickname'),
+                password: formData.get('password'),
+                image: formData.get('image')
+            };
         }
-        console.log(await response.json());
         shouldRedirect = true;
+        // 회원가입 성공 후 로그인
         await signIn("credentials", {
             username: formData.get('id'),
             password: formData.get('password'),
@@ -39,10 +44,11 @@ export default async (prevState: { message: string | null }, formData: FormData)
         })
     } catch (err) {
         console.error(err);
-        return { message: null };
+        return {message: null};
     }
+
     if (shouldRedirect) {
-        redirect('/home'); // 주의할점 : try, catch문 내부에서 사용하면 안된다.
+        redirect('/home'); // try/catch문 안에서 X
     }
-    return { message : null }
+    return {message: null}
 }
