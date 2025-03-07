@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import {MSWProvider} from "@/app/_component/MSWComponent";
+import AuthSession from "@/app/_component/AuthSession";
+
+if (process.env.NEXT_RUNTIME === 'nodejs' && process.env.NODE_ENV !== 'production') {
+    // 서버 컴포넌트용 http.ts를 사용하기 위해 불러옴.
+    const { server } = require('@/mocks/http')
+    server.listen()
+}
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +35,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <MSWProvider>
+          <AuthSession>
+            {children}
+          </AuthSession>
+      </MSWProvider>
       </body>
     </html>
   );
