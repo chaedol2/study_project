@@ -17,7 +17,9 @@ export default async function Search({searchParams}: Props) {
                       <BackButton />
                   </div>
                   <div className={style.formZone}>
-                      <SearchForm q={q} />
+                      <div style={{marginBottom: 60, width: 'inherit'}}>
+                        <SearchForm q={q} />
+                      </div>
                   </div>
               </div>
               <Tab />
