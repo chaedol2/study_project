@@ -1,4 +1,4 @@
-import NextAuth from "next-auth";
+import NextAuth, {CredentialsSignin} from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 const BASE_URL = process.env.BASE_URL || process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:9090";
@@ -43,15 +43,21 @@ export const {
                 });
 
                 if (!authResponse.ok) {
+                    const credentialsSignin = new CredentialsSignin();
                     if (authResponse.status === 404) {
-                        throw new Error("User not found");
+                        credentialsSignin.code = 'no_user';
+                        // throw new Error("User not found");
                     } else if (authResponse.status === 401) {
-                        throw new Error("Incorrect password");
+                        credentialsSignin.code = 'wrong_password';
+                        // throw new Error("Incorrect password");
                     }
-                    throw new Error("Login failed");
+                    // throw new Error("Login failed");
+                    throw credentialsSignin;
+
                 }
 
                 const user = await authResponse.json();
+                console.log('user', user);
                 return {
                     email: user.id,
                     name: user.nickname,

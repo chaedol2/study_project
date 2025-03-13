@@ -1,44 +1,56 @@
-"use client";
+"use client"
 
 import {InfiniteData, useSuspenseInfiniteQuery} from "@tanstack/react-query";
 import {getPostRecommends} from "@/app/(afterLogin)/home/_lib/getPostRecommends";
 import Post from "@/app/(afterLogin)/_component/Post";
-import { Post as IPost } from '@/model/Post';
+import {Post as IPost} from "@/model/Post"
 import {Fragment, useEffect} from "react";
 import {useInView} from "react-intersection-observer";
+import styles from "@/app/(afterLogin)/home/home.module.css";
 
 export default function PostRecommends() {
-    const { data, fetchNextPage, hasNextPage, isFetching } = useSuspenseInfiniteQuery<IPost[], object, InfiniteData<IPost[]>, [_1:string,_2:string], number>({
+    const {data, hasNextPage, fetchNextPage, isFetching, isPending } = useSuspenseInfiniteQuery<IPost[], Object, InfiniteData<IPost[]>, [_1: string, _2: string], number>({
         queryKey: ['posts', 'recommends'],
         queryFn: getPostRecommends,
-        initialPageParam: 0, // [[1,2,3,4,5], [6,7,8,9,10], [11,12,13,14,15]] 2차원 배열 주의
+        initialPageParam: 0,
         getNextPageParam: (lastPage) => lastPage.at(-1)?.postId,
-        // staleTime을 gcTime 보다 작게 해야한다.(반대의경우 의도가 폐색된다.)
-        staleTime: 60*1000, // fresh -> stale 60초간 FRESH 상태로 유지. *Infinity=>항상 FRESH(한번 데이터를 가져오면 새로고침 하지 않는다.)
-        gcTime: 300 * 1000, // 기본값 5분 가비지 컬렉션 타임(캐시가 5분뒤 날라감)
-        // initialData: () => [] // 초기데이터가 있을 때 Reset을 사용하면 된다.
-    })
-
-    const { ref, inView } = useInView({
-        threshold: 0, // 보인 후 몇 픽셀 후에 호출 할 것인가.
-        delay: 0, // 보인 후 몇 초후에 보일 것인가.
+        staleTime: 60 * 1000,
+        gcTime: 300 * 1000,
     });
 
-    useEffect(()=>{
-        if (inView){
-            // 화면에 보일 때, 데이터를 가져오는중이 아니고, 다음 페이지가 존재할 때 데이터 5개 추가
+    const { ref, inView } = useInView({
+        threshold: 0,
+        delay: 0,
+    });
+
+    useEffect(() => {
+        if (inView) {
             !isFetching && hasNextPage && fetchNextPage();
         }
-    }, [inView, isFetching, hasNextPage, fetchNextPage])
+    }, [inView, isFetching, hasNextPage, fetchNextPage ])
 
+    if (isPending) {
+        return (
+            <div style={{display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                <svg className={styles.loader} height="100%" viewBox="0 0 32 32" width={40}>
+                    <circle cx="16" cy="16" fill="none" r="14" strokeWidth="4"
+                            style={{stroke: 'rgb(29, 155, 240)', opacity: 0.2}}></circle>
+                    <circle cx="16" cy="16" fill="none" r="14" strokeWidth="4"
+                            style={{stroke: 'rgb(29, 155, 240)', strokeDasharray: 80, strokeDashoffset: 60}}></circle>
+                </svg>
+            </div>
+        )
+    }
 
     return (
         <>
-            {data?.pages.map((page, i)=> (
-            <Fragment key={i}>
-                {page.map((post) => <Post key={post.postId} post={post}/>)}
-            </Fragment>))}
-            <div ref={ref} style={{ height: 50 }} />
+            {data?.pages.map((page, i) => (
+                <Fragment key={i}>
+                    {page.map((post) => (
+                        <Post key={post.postId} post={post}/>
+                    ))}
+                </Fragment>))}
+            <div ref={ref} style={{height: 50}}/>
         </>
     )
 }

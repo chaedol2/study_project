@@ -1,16 +1,17 @@
 export async function getTrends() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/trends`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/hashtags/trends`, {
         next: {
             tags: ['trends'],
         },
-        cache: 'no-store',
+        credentials: 'include',
     });
-    // the return value is *not* serialized
+    // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
 
-    if(!res.ok) {
+    if (!res.ok) {
         // This will activate the closest `error.js` Error Boundary
-        throw new Error('Failed to fetch data');
+        throw new Error('Failed to fetch data')
     }
+
     return res.json()
 }

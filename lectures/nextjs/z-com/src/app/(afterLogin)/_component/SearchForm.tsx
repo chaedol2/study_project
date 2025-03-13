@@ -2,7 +2,7 @@ import style from "@/app/(afterLogin)/_component/rightSearchZone.module.css";
 import Form from "next/form";
 
 type Props = {
-    q: string;
+    q?: string;
     f?: string;
     pf?: string;
 }
