@@ -8,13 +8,14 @@ import {getUser} from "@/app/(afterLogin)/[username]/_lib/getUser";
 import {MouseEventHandler} from "react";
 import cx from "classnames";
 import {Session} from "next-auth";
+import Image from 'next/image';
 
 type Props = {
     username: string;
     session: Session | null;
 }
 export default function UserInfo({username, session}: Props) {
-    const {data: user, error} = useQuery<User, Object, User, [_1: string, _2: string]>({
+    const {data: user, error} = useQuery<User, object, User, [_1: string, _2: string]>({
         queryKey: ['users', username],
         queryFn: getUser,
         staleTime: 60 * 1000, // fresh -> stale, 5분이라는 기준
@@ -217,7 +218,7 @@ export default function UserInfo({username, session}: Props) {
             <div className={style.userZone}>
                 <div className={style.userRow}>
                     <div className={style.userImage}>
-                        <img src={user.image} alt={user.id}/>
+                        <Image src={user.image} alt={user.id}/>
                     </div>
                     <div className={style.userName}>
                         <div>{user.nickname}</div>

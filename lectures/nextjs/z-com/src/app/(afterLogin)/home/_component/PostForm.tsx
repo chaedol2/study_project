@@ -1,11 +1,12 @@
 "use client"
 
-import {ChangeEventHandler, FormEvent, FormEventHandler, useRef, useState} from "react";
+import {ChangeEventHandler, FormEvent, useRef, useState} from "react";
 import style from './postForm.module.css';
 import {Session} from "next-auth";
 import TextareaAutosize from 'react-textarea-autosize';
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {Post} from "@/model/Post";
+import Image from 'next/image';
 
 type Props = {
     me: Session | null;
@@ -32,7 +33,7 @@ export default function PostForm({ me }: Props) {
                 body: formData,
             });
         },
-        async onSuccess(response, variable, context) {
+        async onSuccess(response) {
             const newPost = await response.json();
             setContent('');
             setPreview([]);
@@ -105,7 +106,7 @@ export default function PostForm({ me }: Props) {
         <form className={style.postForm} onSubmit={mutation.mutate}>
             <div className={style.postUserSection}>
                 <div className={style.postUserImage}>
-                    <img src={me?.user?.image as string} alt={me?.user?.email as string} />
+                    <Image src={me?.user?.image as string} alt={me?.user?.email as string} />
                 </div>
             </div>
             <div className={style.postInputSection}>
@@ -113,7 +114,7 @@ export default function PostForm({ me }: Props) {
                 <div style={{ display: 'flex' }}>
                     {preview.map((v, index) => (
                         v && <div key={index} style={{ flex: 1 }} onClick={onRemoveImage(index)}>
-                            <img src={v.dataUrl} alt="미리보기" style={{objectFit: "contain", width: '100%', maxHeight: 100}} />
+                            <Image src={v.dataUrl} alt="미리보기" style={{objectFit: "contain", width: '100%', maxHeight: 100}} />
                         </div>
                     ))}
                 </div>

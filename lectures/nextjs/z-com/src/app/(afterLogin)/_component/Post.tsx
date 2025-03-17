@@ -5,10 +5,10 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/ko';
 import ActionButtons from "@/app/(afterLogin)/_component/ActionButtons";
 import PostArticle from "@/app/(afterLogin)/_component/PostArticle";
-import {faker} from '@faker-js/faker';
 import PostImages from "@/app/(afterLogin)/_component/PostImages";
 import {Post as IPost} from "@/model/Post";
 import {MouseEventHandler} from "react";
+import Image from 'next/image';
 
 dayjs.locale('ko');
 dayjs.extend(relativeTime)
@@ -42,7 +42,7 @@ export default function Post({ noImage, post }: Props) {
             <div className={style.postWrapper}>
                 <div className={style.postUserSection}>
                     <Link href={`/${target.User?.id}`} className={style.postUserImage} onClick={stopPropagation}>
-                        <img src={target.User.image} alt={target.User.nickname}/>
+                        <Image src={target.User.image} alt={target.User.nickname}/>
                         <div className={style.postShade}/>
                     </Link>
                 </div>

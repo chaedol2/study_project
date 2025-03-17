@@ -7,6 +7,7 @@ import {MouseEventHandler} from "react";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {useSession} from "next-auth/react";
 import cx from "classnames";
+import Image from 'next/image';
 
 type Props = {
     user: User
@@ -164,7 +165,7 @@ export default function FollowRecommend({ user }: Props) {
         <Link href={`/${user.id}`} className={style.container}>
             <div className={style.userLogoSection}>
                 <div className={style.userLogo}>
-                    <img src={user?.image} alt={user.id} />
+                    <Image src={user?.image} alt={user.id} />
                 </div>
             </div>
             <div className={style.userInfo}>

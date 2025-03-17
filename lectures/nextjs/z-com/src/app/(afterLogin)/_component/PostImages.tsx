@@ -1,6 +1,7 @@
 import Link from "next/link";
 import style from "@/app/(afterLogin)/_component/post.module.css";
 import cx from 'classnames';
+import Image from 'next/image';
 
 type Props = {
     post: {
@@ -26,7 +27,7 @@ export default function PostImages({post}: Props) {
                 className={cx(style.postImageSection, style.oneImage)}
                 style={{ backgroundImage: `url(${post.Images[0]?.link})`, backgroundSize: 'contain'}}
             >
-                <img src={post.Images[0]?.link} alt="" />
+                <Image src={post.Images[0]?.link} alt="" />
             </Link>
         )
     }

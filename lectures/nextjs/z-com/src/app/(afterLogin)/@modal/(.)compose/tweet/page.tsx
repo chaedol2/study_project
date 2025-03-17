@@ -9,6 +9,7 @@ import {InfiniteData, useMutation, useQueryClient} from "@tanstack/react-query";
 import {Post} from "@/model/Post";
 import {useModalStore} from "@/store/modal";
 import Link from "next/link";
+import Image from 'next/image';
 
 export default function TweetModal() {
     const [content, setContent] = useState('');
@@ -38,7 +39,7 @@ export default function TweetModal() {
                 body: formData,
             });
         },
-        async onSuccess(response, variable) {
+        async onSuccess(response) {
             const newPost = await response.json();
             setContent('');
             setPreview([]);
@@ -94,7 +95,7 @@ export default function TweetModal() {
                 body: formData,
             });
         },
-        async onSuccess(response, variable) {
+        async onSuccess(response) {
             const newPost = await response.json();
             setContent('');
             setPreview([]);
@@ -216,11 +217,11 @@ export default function TweetModal() {
                     </svg>
                 </button>
                 <form className={style.modalForm} onSubmit={onSubmit}>
-                    {modalStore.mode === 'comment' && parent && (
+                    {modalStore.mode === 'comments' && parent && (
                         <div className={style.modalOriginal}>
                             <div className={style.postUserSection}>
                                 <div className={style.postUserImage}>
-                                    <img src={parent.User.image} alt={parent.User.id}/>
+                                    <Image src={parent.User.image} alt={parent.User.id}/>
                                 </div>
                             </div>
                             <div>
@@ -235,20 +236,20 @@ export default function TweetModal() {
                     <div className={style.modalBody}>
                         <div className={style.postUserSection}>
                             <div className={style.postUserImage}>
-                                <img src={me?.user?.image as string} alt={me?.user?.email as string} />
+                                <Image src={me?.user?.image as string} alt={me?.user?.email as string} />
                             </div>
                         </div>
                         <div className={style.inputDiv}>
                             <TextareaAutosize
                                 className={style.input}
-                                placeholder={modalStore.mode === 'comment' ? '답글 게시하기' : "무슨 일이 일어나고 있나요?"}
+                                placeholder={modalStore.mode === 'comments' ? '답글 게시하기' : "무슨 일이 일어나고 있나요?"}
                                 value={content}
                                 onChange={onChange}
                             />
                             <div style={{display: 'flex'}}>
                                 {preview.map((v, index) => (
                                     v && (<div key={index} style={{flex: 1}} onClick={onRemoveImage(index)}>
-                                        <img src={v.dataUrl} alt="미리보기" style={{width: '100%', objectFit: 'contain', maxHeight: 100}}/>
+                                        <Image src={v.dataUrl} alt="미리보기" style={{width: '100%', objectFit: 'contain', maxHeight: 100}}/>
                                     </div>)
                                 ))}
                             </div>

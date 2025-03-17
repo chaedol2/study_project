@@ -4,12 +4,13 @@ import style from './commentForm.module.css';
 import {useRef, useState} from "react";
 import {useQueryClient} from "@tanstack/react-query";
 import {useSession} from "next-auth/react";
+import Image from 'next/image';
 
 type Props = {
     id: string;
 }
 export default function CommentForm({id}: Props) {
-    const [content, setContent]=useState('');
+    const [content]=useState('');
     const imageRef = useRef(null)
     const { data: me } = useSession();
 
@@ -27,7 +28,7 @@ export default function CommentForm({id}: Props) {
         <form className={style.postForm} onSubmit={onSubmit}>
             <div className={style.postUserSection}>
                 <div className={style.postUserImage}>
-                    <img src={me?.user?.image as string} alt={me?.user?.email as string} />
+                    <Image src={me?.user?.image as string} alt={me?.user?.email as string} />
                 </div>
             </div>
             <div className={style.postInputSection}>

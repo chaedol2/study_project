@@ -9,7 +9,7 @@ import {useInView} from "react-intersection-observer";
 import styles from "@/app/(afterLogin)/home/home.module.css";
 
 export default function PostRecommends() {
-    const {data, hasNextPage, fetchNextPage, isFetching, isPending } = useSuspenseInfiniteQuery<IPost[], Object, InfiniteData<IPost[]>, [_1: string, _2: string], number>({
+    const {data, hasNextPage, fetchNextPage, isFetching, isPending } = useSuspenseInfiniteQuery<IPost[], object, InfiniteData<IPost[]>, [_1: string, _2: string], number>({
         queryKey: ['posts', 'recommends'],
         queryFn: getPostRecommends,
         initialPageParam: 0,

@@ -5,6 +5,7 @@ import BackButton from "@/app/(afterLogin)/_component/BackButton";
 import cx from "classnames";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import Image from 'next/image';
 
 dayjs.locale('ko')
 dayjs.extend(relativeTime);
@@ -26,7 +27,7 @@ export default function ChatRoom() {
             <div><h2>{user.nickname}</h2></div>
             </div>
             <Link href={user.nickname} className={style.userInfo}>
-                <img src={user.image} alt={user.id} />
+                <Image src={user.image} alt={user.id} />
                 <div><b>{user.nickname}</b></div>
                 <div>@{user.id}</div>
             </Link>
