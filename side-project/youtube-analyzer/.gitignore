@@ -1,0 +1,19 @@
+# Environments
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+build/
+dist/
+
+# IDE
+.idea/
+.vscode/
+.gemini/
+
+# macOS
+.DS_Store
