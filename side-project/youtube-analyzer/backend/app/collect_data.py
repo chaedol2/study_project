@@ -50,6 +50,18 @@ def collect_videos():
             )
             playlist_response = playlist_request.execute()
 
+            video_ids = [item["snippet"]["resourceId"]["videoId"] for item in playlist_response["items"]]
+            if not video_ids:
+                continue
+
+            # 동영상 ID 목록으로 통계 정보(조회수, 좋아요 등) 가져오기
+            video_stats_request = youtube.videos().list(
+                part="statistics",
+                id=",".join(video_ids)
+            )
+            video_stats_response = video_stats_request.execute()
+            stats_dict = {item['id']: item['statistics'] for item in video_stats_response['items']}
+
             for item in playlist_response["items"]:
                 snippet = item["snippet"]
                 video_id = snippet["resourceId"]["videoId"]
@@ -57,12 +69,16 @@ def collect_videos():
                 # 데이터베이스에 이미 존재하는 동영상인지 확인
                 exists = db.query(Video).filter(Video.video_id == video_id).first()
                 if not exists:
+                    stats = stats_dict.get(video_id, {})
                     video = Video(
                         video_id=video_id,
                         title=snippet["title"],
                         description=snippet["description"],
                         published_at=datetime.strptime(snippet["publishedAt"], "%Y-%m-%dT%H:%M:%SZ"),
-                        thumbnail_url=snippet["thumbnails"].get("high", {}).get("url")
+                        thumbnail_url=snippet["thumbnails"].get("high", {}).get("url"),
+                        view_count=int(stats.get("viewCount", 0)),
+                        like_count=int(stats.get("likeCount", 0)),
+                        comment_count=int(stats.get("commentCount", 0))
                     )
                     db.add(video)
                     video_count += 1

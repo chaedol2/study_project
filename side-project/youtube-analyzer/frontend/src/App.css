@@ -1,38 +1,42 @@
-.App {
+body {
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1600px; /* 컨테이너 폭 넓게 수정 */
+}
+
+.table th, .table td {
+  text-align: center; /* 모든 셀 가운데 정렬 */
+  vertical-align: middle;
+}
+
+.table th {
+  cursor: pointer;
+  user-select: none;
+}
+
+.table th:hover {
+  background-color: #e9ecef;
+}
+
+.thumbnail-cell img {
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.description-cell {
+  max-width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left; /* 설명은 왼쪽 정렬 */
+}
+
+.loader {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  padding: 20px;
+  font-size: 1.2rem;
 }
