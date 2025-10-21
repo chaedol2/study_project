@@ -15,6 +15,7 @@
 *   **xhr**: XHR을 사용한 Javascript 캐러셀 구현
 *   **xhr-react-porting**: XHR Javascript 캐러셀을 React로 포팅
 *   **todo-list-react-porting**: Vanilla JS로 만든 Todo-List를 React로 포팅
+*   **youtube-analyzer**: Youtube API를 통한 분석용 사이트
 
 </div>
 </details>
